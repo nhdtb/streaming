@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Streamer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        select {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            width: 300px;
+        }
+        iframe {
+            display: block;
+            margin: 20px auto;
+            width: 560px;
+            height: 315px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Select a Video to Watch</h1>
+    <select id="videoSelect" onchange="updateVideo()">
+        <option value="">-- Choose a Video --</option>
+        <option value="1s-Cx2oIQ6khnlXnixKDBD1CEOdxYQ9Ck">Small vid</option>
+        <option value="1DVG6XV7hLKBoItQPw4i0zyMVCsegpVom">Normal vid</option>
+        <!-- Add more options as needed -->
+    </select>
+    <iframe id="videoFrame" src="" allowfullscreen></iframe>
+
+    <script>
+        function updateVideo() {
+            const select = document.getElementById('videoSelect');
+            const videoId = select.value;
+            const iframe = document.getElementById('videoFrame');
+            if (videoId) {
+                // Replace YOUR_VIDEO_ID with actual Google Drive file ID
+                iframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+            } else {
+                iframe.src = '';
+            }
+        }
+    </script>
+</body>
+</html>
